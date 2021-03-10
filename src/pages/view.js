@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 import { view as Header } from '../components/header';
 import { view as Sidebar } from '../components/sidebar';
-import { view as Overview } from './overview';
 import { view as Topo } from './topo';
+import { view as test } from './test';
+import { view as hospital } from './hospital';
+import { view as supermarket } from './supermarket';
 import styles from './home.module.css';
 
 const HomePage = () => {
@@ -24,8 +26,12 @@ const HomePage = () => {
           <Header collapsed={collapsed} setCollapsed={setCollapsed} />
         </div>
         <div className={`${styles.content} ant-layout-content`}>
-          <Route path="/home/overview" component={Overview} />
           <Route path="/home/topo" component={Topo} />
+          <Route path="/home/hospital" component={hospital} />
+          <Route path="/home/supermarket" component={supermarket} />
+          <Route path="/home/test" component={test} />
+
+      
         </div>
       </div>
     </div>

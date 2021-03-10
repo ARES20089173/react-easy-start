@@ -1,8 +1,10 @@
 import React from 'react';
-import { Dropdown, Icon, Menu } from 'antd';
+import { Dropdown, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import * as LocalStorage from '../../util/localstorage';
 import styles from './header.module.css';
+
+import { Icon } from '@ant-design/compatible';
 
 const menu = (
   <Menu>

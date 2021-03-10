@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Checkbox, Button, Form, Icon, Input } from 'antd';
+import { Checkbox, Button, Form, Input } from 'antd';
 import { connect } from 'react-redux';
 import { actions as loginActions } from './index';
 import logo from '../assets/images/logo.svg';
 import styles from './login.module.css';
+
+import { Icon } from '@ant-design/compatible';
 const FormItem = Form.Item;
 
 const LoginPage = ({login}) => {
@@ -30,7 +32,7 @@ const LoginPage = ({login}) => {
           <header>
             <a href="/">
               <img src={logo} alt="ant design mini" />
-              <h2>React Easy Start</h2>
+              <h2>Monitoring-system</h2>
             </a>
             <div className={styles['nav-wrapper']}>
               <nav>
@@ -82,7 +84,7 @@ const LoginPage = ({login}) => {
         </Form>
       </div>
       <div className={styles['footer']}>
-        版权所有 © XXX有限公司 2018
+        版权所有 © Blutech.io 2021
       </div>
     </>
   );

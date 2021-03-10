@@ -1,0 +1,140 @@
+.App {
+  width: 100%;
+  background-color: white;
+  margin-top:2vh;
+  padding: 1vh;
+}
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 15vh;
+  background-color: aqua;
+  color:blue;
+}
+sensorid{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 11vh;
+  background-color: white;
+  text-align: center;
+  overflow-y: auto;
+}
+
+#table{
+
+  border-collapse: collapse; 
+  width: 100%; 
+  border-top: 1px solid #ddd; 
+}
+#table th, #table td {
+  text-align: center;
+  padding: 12px;
+}
+#table tr {
+  /* 表格添加边框 */
+  border-bottom: 1px solid #ddd; 
+}
+
+#table tr.header, #table tr:hover {
+  background-color: #f1f1f1;
+}
+.myInput {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+.content{
+
+  margin-top:2vh;
+  width: 100%;
+  background-color: white;
+  padding: 3vh;
+  overflow-y: auto;
+overflow: auto;
+}
+.collapse{
+  background-color: white;
+  padding: 2vh;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+}
+.collapse:hover {
+  background-color:#f1f1f1;
+}
+.collapse:after {
+  content: '展开/收起';
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+.icon{
+  justify-content: space-around;
+  align-items: center;
+  float: right;
+  width: 2.5vh;
+  height: 2.5vh;
+}
+* {
+  box-sizing: border-box;
+}
+
+.input{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+.input-submit {
+  background-color: #4CAF50;
+  color: white;
+  padding: 2vh;
+  margin-top: 1vh;
+  border: none;
+  border-radius: 4px;
+}
+.input-submit:hover {
+  background-color: #45a049;
+}
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding:3vh;
+
+}
+
+.col-20 {
+  float: left;
+  width: 20%;
+  margin-right: 2%;
+  text-align: left;
+}
+
+.col-33 {
+  float: left;
+  width: 33%;
+  margin-right: 0.3%;
+  text-align: left;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 970px) {
+  .col-20,.col-33,.input-submit {
+    width: 100%;
+    margin-top: 0;
+  }
+}

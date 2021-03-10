@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import data from './data';
 import { Link } from 'react-router-dom';
-import { Icon, Menu } from 'antd';
+import {  Menu } from 'antd';
 import styles from './sidebar.module.css';
 import logo from '../../assets/images/logo.svg';
+
+import { Icon } from '@ant-design/compatible';
 const { SubMenu } = Menu;
 
 const Sidebar = ({collapsed}) => {
@@ -14,7 +16,7 @@ const Sidebar = ({collapsed}) => {
       <div className={styles.logo}>
         <a href="/">
           <img src={logo} alt="logo" />
-          <h1>React Easy Start</h1>
+          <h1> Monitoring system</h1>
         </a>
       </div>
       <Menu

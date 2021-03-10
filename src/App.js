@@ -10,7 +10,7 @@ const App = () => {
       <Loading />
       <Route path="/" component={Login} exact />
       <Route path="/login" component={Login} />
-      <Route path="/home" component={Home} />
+      <Route path="/home" component={Home}  />
     </>
   );
 };
