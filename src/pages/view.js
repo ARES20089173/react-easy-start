@@ -4,7 +4,8 @@ import { view as Header } from '../components/header';
 import { view as Sidebar } from '../components/sidebar';
 import { view as Topo } from './topo';
 import { view as test } from './test';
-import { view as hospital } from './hospital';
+import { view as hospitallianhe } from './hospital_lianhe';
+import { view as hospitallingshi } from './hospital_lingshi';
 import { view as supermarket } from './supermarket';
 import styles from './home.module.css';
 
@@ -27,7 +28,8 @@ const HomePage = () => {
         </div>
         <div className={`${styles.content} ant-layout-content`}>
           <Route path="/home/topo" component={Topo} />
-          <Route path="/home/hospital" component={hospital} />
+          <Route path="/home/hospital-lianhe" component={hospitallianhe} />
+          <Route path="/home/hospital-lingshi" component={hospitallingshi} />
           <Route path="/home/supermarket" component={supermarket} />
           <Route path="/home/test" component={test} />
 

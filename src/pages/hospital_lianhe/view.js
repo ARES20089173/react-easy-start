@@ -8,7 +8,6 @@ import { DataGrid } from '@material-ui/data-grid';
 import yellowpoint from '../img/yellowpot.jpg';
 import greenpoint from '../img/greenpot.jpg';
 function Content(){
-
     const[deviceList,setdeviceList] = useState([])
     const[rowList,setrowList] = useState([])
     const [normalcheck,setnormalcheck]=useState(true)
@@ -18,20 +17,21 @@ const columns = [
     { field: 'id', headerName: 'Sensor_id', type:'number',width: 220},
     { field: 'nickname', headerName: 'Nickname', width: 200 },
     { field: 'type', headerName: 'Sensor_type', width: 200 },
-    {   field: 'status',headerName: 'last_update_time',width: 380,
+    {   field: 'Status',headerName: 'last_update_time',width: 380,
     valueGetter: (params) =>
       `${params.getValue('last_update_time') || ''} `,
     
     renderCell: (params) => (
         `${params.getValue('last_update_time')} `
+        
       ), },
    
   ];
   React.useEffect(() => {
     setInterval(() => {
-      Axios.get('http://8.210.173.109:5000/monitor/sensors_status').then((response)=>{
+      Axios.get('http://8.210.112.36:5000/monitor/sensors_status').then((response)=>{
           setdeviceList(response.data)
-         
+          console.log(response.data)
       });
   }, 1000);
   document.getElementById("buttongroup").style.display="none";
@@ -43,85 +43,84 @@ const columns = [
     document.getElementById("table").style.display="none";
     document.getElementById("transformhand").style.display="none";
   document.getElementById("buttongroup").style.display="block";
-    document.getElementById("buttongroup2").style.display="none";
-    setnormalcheck(false)
-    document.getElementById("normal").style.display='none';
-    setnoupdatecheck(false)
-    document.getElementById("noupdate").style.display='none';
-    setlateupdatecheck(false)
-  document.getElementById("lateupdate").style.display='none';
+  document.getElementById("buttongroup2").style.display="none";
+  setnormalcheck(false)
+  document.getElementById("normal").style.display='none';
+  setnoupdatecheck(false)
+  document.getElementById("noupdate").style.display='none';
+  setlateupdatecheck(false)
+document.getElementById("lateupdate").style.display='none';
   }
-
-    function transformauto(){
-      window.location.reload()
-      
+  function transformauto(){
+    window.location.reload()
+    
+  }
+    function changeurlEvent_device_1(){
+      document.getElementById("name").innerHTML="联合医院：Device_1"
+     
+      deviceList.map((val)=>{
+                
+        console.log(val.device_id_1) 
+        setrowList(val.device_id_1)        
+      })
     }
-      function changeurlEvent_device_1(){
-        document.getElementById("name").innerHTML="商场：Device_1"
-       
-        deviceList.map((val)=>{
-                  
-          console.log(val.device_id_1) 
-          setrowList(val.device_id_1)        
-        })
+    function changeurlEvent_device_2(){
+      document.getElementById("name").innerHTML="联合医院：Device_2"
+     
+      deviceList.map((val)=>{
+                
+        console.log(val.device_id_2) 
+        setrowList(val.device_id_2)        
+      })
+    }
+    function changeurlEvent_device_3(){
+      document.getElementById("name").innerHTML="联合医院：Device_3"
+      deviceList.map((val)=>{
+                
+        console.log(val.device_id_3) 
+        setrowList(val.device_id_3)        
+      })
+    }
+    function changeurlEvent_device_4(){
+      document.getElementById("name").innerHTML="联合医院：Device_4"
+      deviceList.map((val)=>{
+                
+        console.log(val.device_id_4) 
+        setrowList(val.device_id_4)        
+      })
+    }
+    function changeurlEvent_Normal(){
+      if(normalcheck==true){
+        setnormalcheck(false)
+      document.getElementById("normal").style.display='none'
       }
-      function changeurlEvent_device_2(){
-        document.getElementById("name").innerHTML="商场：Device_2"
-       
-        deviceList.map((val)=>{
-                  
-          console.log(val.device_id_2) 
-          setrowList(val.device_id_2)        
-        })
+      else{
+        setnormalcheck(true)
+      document.getElementById("normal").style.display='block'
       }
-      function changeurlEvent_device_3(){
-        document.getElementById("name").innerHTML="商场：Device_3"
-        deviceList.map((val)=>{
-                  
-          console.log(val.device_id_3) 
-          setrowList(val.device_id_3)        
-        })
+    }
+
+    function changeurlEvent_Noupdate(){
+      if(noupdatecheck==true){
+        setnoupdatecheck(false)
+      document.getElementById("noupdate").style.display='none'
       }
-      function changeurlEvent_device_4(){
-        document.getElementById("name").innerHTML="商场：Device_4"
-        deviceList.map((val)=>{
-                  
-          console.log(val.device_id_4) 
-          setrowList(val.device_id_4)        
-        })
+      else{
+        setnoupdatecheck(true)
+      document.getElementById("noupdate").style.display='block'
       }
-      function changeurlEvent_Normal(){
-        if(normalcheck==true){
-          setnormalcheck(false)
-        document.getElementById("normal").style.display='none'
-        }
-        else{
-          setnormalcheck(true)
-        document.getElementById("normal").style.display='block'
-        }
+    }
+    
+    function changeurlEvent_Lateupdate(){
+      if(lateupdatecheck==true){
+        setlateupdatecheck(false)
+      document.getElementById("lateupdate").style.display='none'
       }
-  
-      function changeurlEvent_Noupdate(){
-        if(noupdatecheck==true){
-          setnoupdatecheck(false)
-        document.getElementById("noupdate").style.display='none'
-        }
-        else{
-          setnoupdatecheck(true)
-        document.getElementById("noupdate").style.display='block'
-        }
+      else{
+        setlateupdatecheck(true)
+      document.getElementById("lateupdate").style.display='block'
       }
-      
-      function changeurlEvent_Lateupdate(){
-        if(lateupdatecheck==true){
-          setlateupdatecheck(false)
-        document.getElementById("lateupdate").style.display='none'
-        }
-        else{
-          setlateupdatecheck(true)
-        document.getElementById("lateupdate").style.display='block'
-        }
-      }
+    }
 
     return(
         
@@ -133,14 +132,15 @@ const columns = [
        xs={12}>
              <Grid item xs={12}>
                  <sensorid>
-                 <h1 ><strong id='name'>商场</strong><hr/>{deviceList.map((val)=>{
+                     
+                 <h1 >
+                 <strong id='name'>联合医院</strong><hr/>{deviceList.map((val)=>{
                         var moment = require('moment');
                        return moment().format("YYYY-MM-DD HH:mm:ss"); //当前时间 （24小时制）
                     })}</h1>
-                    
                      </sensorid>
                      <div className="content">
-                     <div id='buttongroup'>
+                         <div id='buttongroup'>
                          <lable id="lable">选择你要查看的设备：</lable>
                      <button id='device1' className="button1" onClick={changeurlEvent_device_1}>Device_1</button>
                      <button id='device2' className="button1" onClick={changeurlEvent_device_2}>Device_2</button>
@@ -156,8 +156,8 @@ const columns = [
                  <button id='transformhand' className="button1" onClick={transformhand}>转换为手动审查表格</button>
                       </div>
                  <div  id='filterlist' style={{ height:600, width: '100%' }}>
-     <DataGrid rows={rowList} columns={columns}checkboxSelection disableColumnMenu />
-    </div> <div id='lateupdate'>
+     <DataGrid rows={rowList} columns={columns}checkboxSelection />
+    </div>          <div id='lateupdate'>
                     <h1>Too late update sensors</h1>
                     <table id="table">
                         <thead>
@@ -170,7 +170,7 @@ const columns = [
                                         <th>Last_update_time</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody >
                         { deviceList.map((val)=>{
                         try{val.device_id_1.map((res)=>{})}
                         catch (e) {
@@ -199,7 +199,7 @@ const columns = [
                                 color='green'
                             }
                             if(color=='red'){
-                            return <tr>
+                            return <tr key={res.device_id_1}>
                               <td>device_1</td>
                             <td>{res.id}</td>
                              <td><img src={upload} height="30vh" width="30vh"></img></td>
@@ -681,8 +681,6 @@ const columns = [
                     </div>
                     </div>
              </Grid>
-           
-           
         </Grid>
 
     );

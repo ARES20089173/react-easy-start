@@ -2,10 +2,16 @@
   "icon": "area-chart",
   "key": "sub-res",
   "label": "监测区域",
-  "children": [{
-    "key": "医院",
-    "label": "医院",
-    "url": "/home/hospital"
+  "children": [
+    {
+    "key": "联合医院",
+    "label": "联合医院",
+    "url": "/home/hospital-lianhe"
+  }, 
+  {
+    "key": "灵实医院",
+    "label": "灵实医院",
+    "url": "/home/hospital-lingshi"
   }, {
     "key": "商场",
     "label": "商场",

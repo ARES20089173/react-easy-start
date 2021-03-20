@@ -9,13 +9,13 @@ import { Icon } from '@ant-design/compatible';
 const menu = (
   <Menu>
     <Menu.Item key="1">
-      <Link to="/home/setting">
+      <Link to="/">
         <Icon type="setting" />&nbsp;偏好设置
       </Link>
     </Menu.Item>
     <Menu.Divider />
     <Menu.Item key="2">
-      <Link to="/login">
+      <Link to="/">
         <Icon type="poweroff" />&nbsp;退出登录
       </Link>
     </Menu.Item>
